@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package benchmarkpb;
+
+// Proper Go package import path relative to project
+option go_package = "internal/int32/proto;benchmarkpb";
+
+// A simple message with a single int32 field for benchmarks
+message TestInt32 {
+  int32 value = 1;
+}

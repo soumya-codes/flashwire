@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+package benchmarkpb;
+
+option go_package = "internal/int32/proto;benchmarkpb";
+
+message TestInt32_50 {
+  int32 f00 = 1;
+  int32 f01 = 2;
+  int32 f02 = 3;
+  int32 f03 = 4;
+  int32 f04 = 5;
+  int32 f05 = 6;
+  int32 f06 = 7;
+  int32 f07 = 8;
+  int32 f08 = 9;
+  int32 f09 = 10;
+  int32 f10 = 11;
+  int32 f11 = 12;
+  int32 f12 = 13;
+  int32 f13 = 14;
+  int32 f14 = 15;
+  int32 f15 = 16;
+  int32 f16 = 17;
+  int32 f17 = 18;
+  int32 f18 = 19;
+  int32 f19 = 20;
+  int32 f20 = 21;
+  int32 f21 = 22;
+  int32 f22 = 23;
+  int32 f23 = 24;
+  int32 f24 = 25;
+  int32 f25 = 26;
+  int32 f26 = 27;
+  int32 f27 = 28;
+  int32 f28 = 29;
+  int32 f29 = 30;
+  int32 f30 = 31;
+  int32 f31 = 32;
+  int32 f32 = 33;
+  int32 f33 = 34;
+  int32 f34 = 35;
+  int32 f35 = 36;
+  int32 f36 = 37;
+  int32 f37 = 38;
+  int32 f38 = 39;
+  int32 f39 = 40;
+  int32 f40 = 41;
+  int32 f41 = 42;
+  int32 f42 = 43;
+  int32 f43 = 44;
+  int32 f44 = 45;
+  int32 f45 = 46;
+  int32 f46 = 47;
+  int32 f47 = 48;
+  int32 f48 = 49;
+  int32 f49 = 50;
+}

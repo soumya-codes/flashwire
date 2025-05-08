@@ -1,0 +1,8 @@
+// Size returns the size of the encoded {{ .TypeName }}.
+func (d *{{ .TypeName }}) Size() int {
+	size := 0
+	{{- range .Fields }}
+	size += varint.VarintSize(uint64(codec.ZigzagEncode32(d.{{ .Name }})))
+	{{- end }}
+	return size
+}

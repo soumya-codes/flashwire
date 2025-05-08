@@ -1,0 +1,19 @@
+package codec
+
+import "testing"
+
+func FuzzReaderInt32(f *testing.F) {
+	// Provide an initial seed input for the fuzz test
+	f.Add([]byte{0x00, 0x00, 0x00, 0x00})
+	f.Add([]byte{0x15, 0xCD, 0x5B, 0x07})
+	f.Add([]byte{0xFF, 0xFF, 0xFF, 0x7F})
+	f.Add([]byte{0xFF, 0xFF, 0xFF, 0xFF})
+	f.Add([]byte{0x00, 0x00, 0x00, 0x80})
+	f.Add([]byte{0x01, 0x02, 0x03})
+	f.Add([]byte{0x15, 0xCD, 0x5B, 0x07, 0x05})
+
+	f.Fuzz(func(t *testing.T, data []byte) {
+		r := NewReader(data)
+		_, _ = r.ReadInt32() // we don't care about value, only that no panic occurs
+	})
+}

@@ -1,0 +1,12 @@
+// UnmarshalBinary decodes bytes into {{ .TypeName }}.
+func (d *{{ .TypeName }}) UnmarshalBinary(data []byte) error {
+	r := codec.NewReader(data)
+	{{- range .Fields }}
+	v{{ .Name }}, err := r.ReadInt32()
+	if err != nil {
+		return err
+	}
+	d.{{ .Name }} = v{{ .Name }}
+	{{- end }}
+	return nil
+}

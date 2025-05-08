@@ -1,0 +1,25 @@
+// MarshalBinary encodes {{ .TypeName }} into a new byte slice.
+func (d *{{ .TypeName }}) MarshalBinary() ([]byte, error) {
+	buf, err := d.MarshalBinaryBorrowed()
+	if err != nil {
+		return nil, err
+	}
+	defer codec.PutBuffer(buf)
+	return slices.Clone(buf.Bytes()), nil
+}
+
+// MarshalBinaryBorrowed encodes {{ .TypeName }} and returns a borrowed buffer.
+// Caller MUST call codec.PutBuffer(buf) after use.
+func (d *{{ .TypeName }}) MarshalBinaryBorrowed() (*bytes.Buffer, error) {
+	w := codec.GetBuffer()
+	enc := codec.NewWriterFromBuffer(w)
+
+	{{- range .Fields }}
+	if err := enc.WriteInt32(d.{{ .Name }}); err != nil {
+		codec.PutBuffer(w)
+		return nil, err
+	}
+	{{- end }}
+
+	return w, nil
+}
