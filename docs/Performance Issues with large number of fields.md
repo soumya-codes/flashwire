@@ -101,26 +101,3 @@ Return []byte
 | Protobuf Unmarshal | 109 ns | 240 B | 1 |
 
 ---
-
-# 📣 Observations
-
-| | |
-|:--|:--|
-| Flashwire MarshalBinaryBorrowed is only ~5% slower than Protobuf Marshal | ✅ |
-| Flashwire UnmarshalBinary is **faster** than Protobuf Unmarshal when considering allocations | ✅ |
-| Flashwire provides both beginner-safe and ultra-fast APIs | ✅ |
-| Flashwire does not carry reflection baggage (lean structs) | ✅ |
-
----
-
-# 📜 Design Principles Flashwire Adopted
-
-- Buffer reuse via `sync.Pool`
-- Safe fallback clone in MarshalBinary
-- Zero-alloc Borrowed API
-- User-configurable buffer settings
-- Fully modular Codec (Writer/Reader abstraction)
-- Extensible Codegen (easy to add new types: []int32, string, etc.)
-- Full unit testing + benchmarking infrastructure
-
----
