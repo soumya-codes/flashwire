@@ -2,6 +2,7 @@ package codec
 
 import (
 	"bytes"
+	"github.com/soumya-codes/flashwire/internal/bufferpool"
 
 	"github.com/soumya-codes/flashwire/internal/varint"
 )
@@ -14,7 +15,7 @@ type Writer struct {
 // NewWriter returns a new Writer with an empty buffer.
 func NewWriter() *Writer {
 	return &Writer{
-		buf: GetBuffer(),
+		buf: bufferpool.GetBuffer(),
 	}
 }
 

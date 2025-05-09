@@ -2,7 +2,10 @@
 
 package main
 
-import "bytes"
+import (
+	"bytes"
+	"github.com/soumya-codes/flashwire/internal/bufferpool"
+)
 import "slices"
 
 import "github.com/soumya-codes/flashwire/internal/varint"
@@ -14,213 +17,213 @@ func (d *DataInput50) MarshalBinary() ([]byte, error) {
 	if err != nil {
 		return nil, err
 	}
-	defer codec.PutBuffer(buf)
+	defer bufferpool.PutBuffer(buf)
 	return slices.Clone(buf.Bytes()), nil
 }
 
 // MarshalBinaryBorrowed encodes DataInput50 and returns a borrowed buffer.
 // Caller MUST call codec.PutBuffer(buf) after use.
 func (d *DataInput50) MarshalBinaryBorrowed() (*bytes.Buffer, error) {
-	w := codec.GetBuffer()
+	w := bufferpool.GetBuffer()
 	enc := codec.NewWriterFromBuffer(w)
 	if err := enc.WriteInt32(d.F00); err != nil {
-		codec.PutBuffer(w)
+		bufferpool.PutBuffer(w)
 		return nil, err
 	}
 	if err := enc.WriteInt32(d.F01); err != nil {
-		codec.PutBuffer(w)
+		bufferpool.PutBuffer(w)
 		return nil, err
 	}
 	if err := enc.WriteInt32(d.F02); err != nil {
-		codec.PutBuffer(w)
+		bufferpool.PutBuffer(w)
 		return nil, err
 	}
 	if err := enc.WriteInt32(d.F03); err != nil {
-		codec.PutBuffer(w)
+		bufferpool.PutBuffer(w)
 		return nil, err
 	}
 	if err := enc.WriteInt32(d.F04); err != nil {
-		codec.PutBuffer(w)
+		bufferpool.PutBuffer(w)
 		return nil, err
 	}
 	if err := enc.WriteInt32(d.F05); err != nil {
-		codec.PutBuffer(w)
+		bufferpool.PutBuffer(w)
 		return nil, err
 	}
 	if err := enc.WriteInt32(d.F06); err != nil {
-		codec.PutBuffer(w)
+		bufferpool.PutBuffer(w)
 		return nil, err
 	}
 	if err := enc.WriteInt32(d.F07); err != nil {
-		codec.PutBuffer(w)
+		bufferpool.PutBuffer(w)
 		return nil, err
 	}
 	if err := enc.WriteInt32(d.F08); err != nil {
-		codec.PutBuffer(w)
+		bufferpool.PutBuffer(w)
 		return nil, err
 	}
 	if err := enc.WriteInt32(d.F09); err != nil {
-		codec.PutBuffer(w)
+		bufferpool.PutBuffer(w)
 		return nil, err
 	}
 	if err := enc.WriteInt32(d.F10); err != nil {
-		codec.PutBuffer(w)
+		bufferpool.PutBuffer(w)
 		return nil, err
 	}
 	if err := enc.WriteInt32(d.F11); err != nil {
-		codec.PutBuffer(w)
+		bufferpool.PutBuffer(w)
 		return nil, err
 	}
 	if err := enc.WriteInt32(d.F12); err != nil {
-		codec.PutBuffer(w)
+		bufferpool.PutBuffer(w)
 		return nil, err
 	}
 	if err := enc.WriteInt32(d.F13); err != nil {
-		codec.PutBuffer(w)
+		bufferpool.PutBuffer(w)
 		return nil, err
 	}
 	if err := enc.WriteInt32(d.F14); err != nil {
-		codec.PutBuffer(w)
+		bufferpool.PutBuffer(w)
 		return nil, err
 	}
 	if err := enc.WriteInt32(d.F15); err != nil {
-		codec.PutBuffer(w)
+		bufferpool.PutBuffer(w)
 		return nil, err
 	}
 	if err := enc.WriteInt32(d.F16); err != nil {
-		codec.PutBuffer(w)
+		bufferpool.PutBuffer(w)
 		return nil, err
 	}
 	if err := enc.WriteInt32(d.F17); err != nil {
-		codec.PutBuffer(w)
+		bufferpool.PutBuffer(w)
 		return nil, err
 	}
 	if err := enc.WriteInt32(d.F18); err != nil {
-		codec.PutBuffer(w)
+		bufferpool.PutBuffer(w)
 		return nil, err
 	}
 	if err := enc.WriteInt32(d.F19); err != nil {
-		codec.PutBuffer(w)
+		bufferpool.PutBuffer(w)
 		return nil, err
 	}
 	if err := enc.WriteInt32(d.F20); err != nil {
-		codec.PutBuffer(w)
+		bufferpool.PutBuffer(w)
 		return nil, err
 	}
 	if err := enc.WriteInt32(d.F21); err != nil {
-		codec.PutBuffer(w)
+		bufferpool.PutBuffer(w)
 		return nil, err
 	}
 	if err := enc.WriteInt32(d.F22); err != nil {
-		codec.PutBuffer(w)
+		bufferpool.PutBuffer(w)
 		return nil, err
 	}
 	if err := enc.WriteInt32(d.F23); err != nil {
-		codec.PutBuffer(w)
+		bufferpool.PutBuffer(w)
 		return nil, err
 	}
 	if err := enc.WriteInt32(d.F24); err != nil {
-		codec.PutBuffer(w)
+		bufferpool.PutBuffer(w)
 		return nil, err
 	}
 	if err := enc.WriteInt32(d.F25); err != nil {
-		codec.PutBuffer(w)
+		bufferpool.PutBuffer(w)
 		return nil, err
 	}
 	if err := enc.WriteInt32(d.F26); err != nil {
-		codec.PutBuffer(w)
+		bufferpool.PutBuffer(w)
 		return nil, err
 	}
 	if err := enc.WriteInt32(d.F27); err != nil {
-		codec.PutBuffer(w)
+		bufferpool.PutBuffer(w)
 		return nil, err
 	}
 	if err := enc.WriteInt32(d.F28); err != nil {
-		codec.PutBuffer(w)
+		bufferpool.PutBuffer(w)
 		return nil, err
 	}
 	if err := enc.WriteInt32(d.F29); err != nil {
-		codec.PutBuffer(w)
+		bufferpool.PutBuffer(w)
 		return nil, err
 	}
 	if err := enc.WriteInt32(d.F30); err != nil {
-		codec.PutBuffer(w)
+		bufferpool.PutBuffer(w)
 		return nil, err
 	}
 	if err := enc.WriteInt32(d.F31); err != nil {
-		codec.PutBuffer(w)
+		bufferpool.PutBuffer(w)
 		return nil, err
 	}
 	if err := enc.WriteInt32(d.F32); err != nil {
-		codec.PutBuffer(w)
+		bufferpool.PutBuffer(w)
 		return nil, err
 	}
 	if err := enc.WriteInt32(d.F33); err != nil {
-		codec.PutBuffer(w)
+		bufferpool.PutBuffer(w)
 		return nil, err
 	}
 	if err := enc.WriteInt32(d.F34); err != nil {
-		codec.PutBuffer(w)
+		bufferpool.PutBuffer(w)
 		return nil, err
 	}
 	if err := enc.WriteInt32(d.F35); err != nil {
-		codec.PutBuffer(w)
+		bufferpool.PutBuffer(w)
 		return nil, err
 	}
 	if err := enc.WriteInt32(d.F36); err != nil {
-		codec.PutBuffer(w)
+		bufferpool.PutBuffer(w)
 		return nil, err
 	}
 	if err := enc.WriteInt32(d.F37); err != nil {
-		codec.PutBuffer(w)
+		bufferpool.PutBuffer(w)
 		return nil, err
 	}
 	if err := enc.WriteInt32(d.F38); err != nil {
-		codec.PutBuffer(w)
+		bufferpool.PutBuffer(w)
 		return nil, err
 	}
 	if err := enc.WriteInt32(d.F39); err != nil {
-		codec.PutBuffer(w)
+		bufferpool.PutBuffer(w)
 		return nil, err
 	}
 	if err := enc.WriteInt32(d.F40); err != nil {
-		codec.PutBuffer(w)
+		bufferpool.PutBuffer(w)
 		return nil, err
 	}
 	if err := enc.WriteInt32(d.F41); err != nil {
-		codec.PutBuffer(w)
+		bufferpool.PutBuffer(w)
 		return nil, err
 	}
 	if err := enc.WriteInt32(d.F42); err != nil {
-		codec.PutBuffer(w)
+		bufferpool.PutBuffer(w)
 		return nil, err
 	}
 	if err := enc.WriteInt32(d.F43); err != nil {
-		codec.PutBuffer(w)
+		bufferpool.PutBuffer(w)
 		return nil, err
 	}
 	if err := enc.WriteInt32(d.F44); err != nil {
-		codec.PutBuffer(w)
+		bufferpool.PutBuffer(w)
 		return nil, err
 	}
 	if err := enc.WriteInt32(d.F45); err != nil {
-		codec.PutBuffer(w)
+		bufferpool.PutBuffer(w)
 		return nil, err
 	}
 	if err := enc.WriteInt32(d.F46); err != nil {
-		codec.PutBuffer(w)
+		bufferpool.PutBuffer(w)
 		return nil, err
 	}
 	if err := enc.WriteInt32(d.F47); err != nil {
-		codec.PutBuffer(w)
+		bufferpool.PutBuffer(w)
 		return nil, err
 	}
 	if err := enc.WriteInt32(d.F48); err != nil {
-		codec.PutBuffer(w)
+		bufferpool.PutBuffer(w)
 		return nil, err
 	}
 	if err := enc.WriteInt32(d.F49); err != nil {
-		codec.PutBuffer(w)
+		bufferpool.PutBuffer(w)
 		return nil, err
 	}
 

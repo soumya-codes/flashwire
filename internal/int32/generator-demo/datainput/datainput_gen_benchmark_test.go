@@ -1,9 +1,8 @@
 package main
 
 import (
+	"github.com/soumya-codes/flashwire/internal/bufferpool"
 	"testing"
-
-	"github.com/soumya-codes/flashwire/internal/int32/codec"
 )
 
 func BenchmarkDataInputMarshalBinary(b *testing.B) {
@@ -32,7 +31,7 @@ func BenchmarkDataInputMarshalBinaryBorrowed(b *testing.B) {
 		if err != nil {
 			b.Fatal(err)
 		}
-		codec.PutBuffer(buf) // return it after each use
+		bufferpool.PutBuffer(buf) // return it after each use
 	}
 }
 

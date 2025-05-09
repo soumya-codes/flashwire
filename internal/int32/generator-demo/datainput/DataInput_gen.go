@@ -2,7 +2,10 @@
 
 package main
 
-import "bytes"
+import (
+	"bytes"
+	"github.com/soumya-codes/flashwire/internal/bufferpool"
+)
 import "slices"
 
 import "github.com/soumya-codes/flashwire/internal/varint"
@@ -14,21 +17,21 @@ func (d *DataInput) MarshalBinary() ([]byte, error) {
 	if err != nil {
 		return nil, err
 	}
-	defer codec.PutBuffer(buf)
+	defer bufferpool.PutBuffer(buf)
 	return slices.Clone(buf.Bytes()), nil
 }
 
 // MarshalBinaryBorrowed encodes DataInput and returns a borrowed buffer.
 // Caller MUST call codec.PutBuffer(buf) after use.
 func (d *DataInput) MarshalBinaryBorrowed() (*bytes.Buffer, error) {
-	w := codec.GetBuffer()
+	w := bufferpool.GetBuffer()
 	enc := codec.NewWriterFromBuffer(w)
 	if err := enc.WriteInt32(d.Foo); err != nil {
-		codec.PutBuffer(w)
+		bufferpool.PutBuffer(w)
 		return nil, err
 	}
 	if err := enc.WriteInt32(d.Bar); err != nil {
-		codec.PutBuffer(w)
+		bufferpool.PutBuffer(w)
 		return nil, err
 	}
 

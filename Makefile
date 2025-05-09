@@ -56,8 +56,6 @@ bench-flashwire:
 bench-protobuf:
 	go test -bench=BenchmarkProtobuf -benchmem ./$(BENCHMARK_DIR)
 
-bench-all: bench-flashwire bench-protobuf
-
 # Unit tests across all packages
 test:
 	go test -v ./...
